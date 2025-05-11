@@ -1,0 +1,16 @@
+1. Chuoi bits tim duoc sau khi phan tich file host_case.pcap: 
+=> Thong diep tim duoc: ***
+
+2. Chuoi bits tim duoc sau khi phan tich file header_order.pcap:
+=> Thong diep tim duoc: **
+
+3. Chuoi bits tim duoc sau khi phan tich file multi_header.pcap: 
+=> Thong diep tim duoc: ****
+
+4. Chuoi bits tim duoc sau khi phan tich file combined_tech.pcap:
+=> Thong diep tim duoc: ****
+
+5. Chuoi bits tim duoc sau khi phan tich file noise_traffic.pcap:
+=> Thong diep tim duoc: ****
+
+THONG DIEP CUOI CUNG LA: *** ** **** **** ****
