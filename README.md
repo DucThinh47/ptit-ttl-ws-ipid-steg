@@ -39,23 +39,23 @@ Trên máy monitor, khởi động Wireshark:
     
     wireshark &
 
-![img](0)
+![img](https://github.com/DucThinh47/ptit-ttl-ws-ipid-steg/blob/main/images/image0.png?raw=true)
 
 Từ máy sender, kiểm tra kết nối tới máy receiver:
 
     ping 192.168.50.10
 
-![img](1)
+![img](https://github.com/DucThinh47/ptit-ttl-ws-ipid-steg/blob/main/images/image1.png?raw=true)
 
 Kiểm tra trên Wireshark xem có bắt được gói tin ICMP không:
 
-![img](2)
+![img](https://github.com/DucThinh47/ptit-ttl-ws-ipid-steg/blob/main/images/image2.png?raw=true)
 
 Trên máy sender, thực thi file send_combined_steg.py để gửi thông điệp “PTIT”:
 
     sudo python3 send_combiend_steg.py “PTIT”
 
-![img](3)
+![img](https://github.com/DucThinh47/ptit-ttl-ws-ipid-steg/blob/main/images/image3.png?raw=true)
 
 Trên Wireshark, dừng bắt gói tin, quan sát lưu lượng mạng. 
 
@@ -74,50 +74,50 @@ Cách xác định và ghi lại chuỗi bit. Mỗi gói hợp lệ mang 3 bit t
 
 -> Gói này mang 3 bit: 1 1 0
 
-![img](4)
+![img](https://github.com/DucThinh47/ptit-ttl-ws-ipid-steg/blob/main/images/image4.png?raw=true)
 
 Sau khi quan sát và phân tích, tìm được các gói có chứa thông điệp, tiến hành lưu lưu lượng mạng thành file monitor_capture.pcap:
 
-![img](5)
+![img](https://github.com/DucThinh47/ptit-ttl-ws-ipid-steg/blob/main/images/image5.png?raw=true)
 
 Kiểm tra trên máy monitor xem đã lưu file thành công chưa:
 
-![img](6)
+![img](https://github.com/DucThinh47/ptit-ttl-ws-ipid-steg/blob/main/images/image6.png?raw=true)
 
 Tiếp theo thực hiện chuyển file monitor_capture.pcap từ máy monitor sang máy receiver.
 Trên máy receiver: 
 
     nc -l -p 8888 > monitor_capture.pcap
 
-![img](7)
+![img](https://github.com/DucThinh47/ptit-ttl-ws-ipid-steg/blob/main/images/image7.png?raw=true)
 
 Trên máy monitor:
 
-![img](8)
+![img](https://github.com/DucThinh47/ptit-ttl-ws-ipid-steg/blob/main/images/image8.png?raw=true)
 
 Trên máy receiver, Ctrl+C để dừng netcat. Kiểm tra xem nhận được file chưa:
 
-![img](9)
+![img](https://github.com/DucThinh47/ptit-ttl-ws-ipid-steg/blob/main/images/image9.png?raw=true)
 
 Trên máy receiver, thực thi script detect_combined_steg.py:
 
     sudo python3 detect_combined_steg.py monitor_capture.pcap
 
-![img](10)
+![img](https://github.com/DucThinh47/ptit-ttl-ws-ipid-steg/blob/main/images/image10.png?raw=true)
 
 Từ logs thu được sau khi thực thi script detect_combined_steg.py trên máy receiver, phân tích, tìm ra đâu là gói tin thật, đâu là gói tin chứa thông điệp.
 Ghi lại số lượng gói tin có chứa thông điệp vào file answer.txt trên máy monitor:
 
     nano answer.txt
 
-![img](11)
+![img](https://github.com/DucThinh47/ptit-ttl-ws-ipid-steg/blob/main/images/image11.png?raw=true)
 
 Từ việc phân tích, tiến hành ghi lại giá trị bits đại diện cho thông điệp “PTIT”.
 Thực thi script decode_bits.py trên máy monitor để xác nhận chuỗi bit tìm được là đúng:
 
     python3 decode_bits.py
 
-![img](12)
+![img](https://github.com/DucThinh47/ptit-ttl-ws-ipid-steg/blob/main/images/image12.png?raw=true)
 
 Sau khi đã tìm ra được chuỗi bit đúng, ghi kết quả vào file answer.txt trên máy monitor. Lưu file answer.txt.
 
